@@ -17,7 +17,6 @@
 import React, { FC, useEffect, useState } from "react";
 
 interface PaginateComponentProps {
-  initialPage: number;
   initialSize: number;
   totalRows: number;
   paginateCallback: Function;

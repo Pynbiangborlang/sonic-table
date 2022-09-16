@@ -39,8 +39,9 @@ div.sonic-table-controls {
   background-color: white;
 }
 button.sonic-table-pag-btn {
-  width: 10px;
+  width: 20px;
   cursor: pointer;
+  font-size: 17px;
 }
 .border-none {
   border: none;
