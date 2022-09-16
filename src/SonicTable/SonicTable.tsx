@@ -13,7 +13,7 @@ import "./SonicTable.css";
 interface PaginaTionStateProps {
   rowsPerPage?: number;
   totalRows: number;
-  selectOptions?: number[];
+  selectRowsPerPageOptions?: number[];
 }
 
 interface columnsProps {
@@ -39,8 +39,10 @@ const SonicTable: FC<SonicTableProps> = ({
   className = "",
   isDebounce = true,
   isPaginate = true,
-
-  paginationState,
+  paginationState = {
+    rowsPerPage: 10,
+    totalRows: 0,
+  },
   onPaginate = () => {},
   onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log(e);
@@ -93,11 +95,10 @@ const SonicTable: FC<SonicTableProps> = ({
       </table>
       {isPaginate && (
         <PaginateComponent
-          initialPage={paginationState?.currentPage}
-          initialSize={paginationState?.rowsPerPage}
+          initialSize={paginationState?.rowsPerPage || 10}
           totalRows={paginationState?.totalRows}
           paginateCallback={onPaginate}
-          options={paginationState?.selectOptions}
+          options={paginationState?.selectRowsPerPageOptions}
         />
       )}
     </div>

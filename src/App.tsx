@@ -32,6 +32,16 @@ const App = () => {
     []
   );
 
+  const paginate = ({ page, size }: { page: number; size: number }) => {
+    console.log(page, "page");
+    console.log(size, "size");
+    axios
+      .get(`http://localhost:9001/api/v1/posts?offSet=${page}&limit=${size}`)
+      .then((res) => {
+        setPosts(res.data);
+      });
+  };
+
   useEffect(() => {
     axios
       .get("http://localhost:9001/api/v1/posts?offSet=1&limit=10")
@@ -48,15 +58,7 @@ const App = () => {
       data={posts}
       columns={columns}
       onPaginate={({ page, size }) => {
-        console.log(page, "page");
-        console.log(size, "size");
-        axios
-          .get(
-            `http://localhost:9001/api/v1/posts?offSet=${page}&limit=${size}`
-          )
-          .then((res) => {
-            setPosts(res.data);
-          });
+        paginate({ page, size });
       }}
       paginationState={{
         totalRows: 100,
