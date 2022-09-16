@@ -1,0 +1,90 @@
+.sonic-table-container {
+  width: 100%;
+  margin: 0 auto;
+}
+table.sonic-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 30px;
+}
+table.sonic-table tr {
+  height: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+}
+.sonic-table tbody tr:nth-child(odd) {
+  background-color: rgb(219, 217, 217);
+}
+.sonic-table .border-none td {
+  border-collapse: collapse;
+}
+
+.sonic-table th tr {
+  background-color: white;
+}
+div.sonic-table-paginate {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px;
+}
+div.sonic-table-controls {
+  display: flex;
+  flex-direction: row;
+  float: right;
+}
+.sonic-table-paginate .bg-light {
+  background-color: white;
+}
+button.sonic-table-pag-btn {
+  width: 10px;
+  cursor: pointer;
+}
+.border-none {
+  border: none;
+}
+.sonic-table tr td {
+  text-align: center;
+}
+
+.sonic-table-input {
+  border-radius: 10px;
+  height: 30px;
+  outline: none;
+  border: 0px;
+  box-shadow: 1px 1px 1px 1px grey;
+}
+
+form.sonic-table-input {
+  padding: 2px;
+  display: flex;
+  flex-wrap: nowrap;
+  width: 250px;
+  height: auto;
+}
+
+.sonic-table-pg-select {
+  width: 100px;
+}
+
+.sonic-table-db-search {
+  outline: none;
+  border: none;
+  width: 250px;
+  height: 30px;
+  border-radius: 10px;
+  font-size: medium;
+  font-style: italic;
+}
+.sonic-table-db-search input {
+  border-radius: 0px;
+}
+button.sonic-table-search-btn {
+  border-radius: 10px;
+  background-color: white;
+  outline: none;
+  float: right;
+  cursor: pointer;
+}
