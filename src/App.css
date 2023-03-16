@@ -1,8 +1,5 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 20px;
 }
 
 .logo {
@@ -38,4 +35,21 @@
 
 .read-the-docs {
   color: #888;
+}
+.comments {
+  max-width: 204px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lib__app {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+.lib__debug_container {
+  background-color: rgb(55, 47, 47);
+  background-color: rgb(55, 47, 47);
+  padding: 2rem;
+  color: #fff;
 }

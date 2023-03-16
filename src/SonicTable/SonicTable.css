@@ -1,26 +1,153 @@
 .sonic-table-container {
   width: 100%;
   margin: 0 auto;
+  height: 100vh;
+  max-height: inherit;
+}
+.sonic-table-container * {
+  user-select: none;
+}
+.sb-sonic__table-box {
+  max-height: 85vh;
+  overflow-y: scroll;
 }
 table.sonic-table {
   border-collapse: collapse;
   width: 100%;
-  margin-top: 30px;
+  margin-top: 10px;
 }
 table.sonic-table tr {
-  height: 40px;
+  height: 50px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: small;
 }
+.sonic-table--empty {
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+}
 .sonic-table tbody tr:nth-child(odd) {
-  background-color: rgb(219, 217, 217);
+  background-color: #f2f2f2;
 }
 .sonic-table .border-none td {
   border-collapse: collapse;
 }
+input.sonic-table-db-search {
+  border: 1px solid rgb(197, 197, 197);
+  width: 200px;
+  padding: 5px 10px;
+  font-size: medium;
+  border-radius: 20px;
+  background: rgb(236, 236, 236);
+}
+table.sonic-table tbody {
+  overflow-y: scroll;
+}
+table.sonic-table tbody tr[aria-selected="true"] {
+  background-color: #bce6e5;
+  font-weight: 700;
+}
+/* table tr td:first-child {
+  padding: 0 1.5em;
+} */
+table.sonic-table tbody tr[aria-describedby="selectable"] {
+  cursor: pointer;
+  position: relative;
+}
+table.sonic-table
+  tbody
+  tr[aria-describedby="selectable"]
+  td[aria-labelledby="controls"]:last-child {
+  background-color: transparent;
+  z-index: 2;
+  display: flex;
+  width: fit-content;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+table.sonic-table tbody tr[aria-describedby="selectable"]:hover {
+  background-color: #3fcbc928;
+}
+table.sonic-table
+  tbody
+  tr[aria-describedby="selectable"]:hover
+  td[aria-labelledby="controls"]:last-child {
+  /* background-color: #e1f7f7; */
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(225, 247, 247, 1) 10%
+  );
+}
+table.sonic-table tbody tr[aria-selected="true"]:hover {
+  background-color: #bce6e5;
+}
+table.sonic-table
+  tbody
+  tr[aria-selected="true"]:hover
+  td[aria-labelledby="controls"]:last-child {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(188, 230, 229, 1) 10%
+  );
+}
 
-.sonic-table th tr {
-  background-color: white;
+table.sonic-table
+  tbody
+  tr[aria-describedby="selectable"]
+  td[aria-labelledby="controls"]
+  div {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 3em 0 3em;
+  gap: 1em;
+  overflow: hidden;
+}
+table.sonic-table
+  tbody
+  tr[aria-describedby="selectable"]
+  td[aria-labelledby="controls"]
+  div
+  button {
+  transition: 0.1s;
+  transform: translateY(20em);
+}
+table.sonic-table
+  tbody
+  tr[aria-describedby="selectable"]:hover
+  td[aria-labelledby="controls"]
+  div
+  button {
+  display: inline-block;
+  transform: translateY(0);
+}
+table.sonic-table
+  tbody
+  tr[aria-selected="true"]
+  td[aria-labelledby="controls"]
+  div
+  button {
+  display: inline-block;
+  transform: translateY(0);
+}
+table.sonic-table
+  tbody
+  tr[aria-selected="true"]
+  td[aria-labelledby="controls"]:last-child {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(188, 230, 229, 1) 10%
+  );
+}
+.sonic-table thead tr {
+  background-color: #e5e5e4;
 }
 div.sonic-table-paginate {
   margin-top: 5px;
@@ -46,16 +173,28 @@ button.sonic-table-pag-btn {
 .border-none {
   border: none;
 }
-.sonic-table tr td {
+/* .sonic-table tr td {
   text-align: center;
+} */
+
+.sonic-table tr th {
+  text-align: start;
+}
+.sonic-table tr td:first-child,
+.sonic-table tr th:first-child {
+  padding-left: 1rem;
+}
+.sonic-table tr td.sb_dnd-cell:first-child,
+.sonic-table tr th.sb_dnd-cell:first-child {
+  padding-left: 0.1rem;
+  width: 1.3em;
 }
 
 .sonic-table-input {
   border-radius: 10px;
   height: 30px;
   outline: none;
-  border: 0px;
-  box-shadow: 1px 1px 1px 1px grey;
+  border: 1px solid rgb(209, 209, 209);
 }
 
 form.sonic-table-input {
@@ -74,10 +213,9 @@ form.sonic-table-input {
   outline: none;
   border: none;
   width: 250px;
-  height: 30px;
+  height: 20px;
   border-radius: 10px;
   font-size: medium;
-  font-style: italic;
 }
 .sonic-table-db-search input {
   border-radius: 0px;
@@ -88,4 +226,25 @@ button.sonic-table-search-btn {
   outline: none;
   float: right;
   cursor: pointer;
+}
+.sb__table-drag-cell {
+  white-space: nowrap;
+  /* display: flex;
+  justify-content: flex-start;
+  align-items: center; */
+}
+.sb__table-drag-cell .sb__table-drag-cell--btn {
+  padding: 0;
+  height: 100%;
+  width: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: grab;
+}
+.sb__table-drag-cell:focus .sb__table-drag-cell--btn:focus {
+  cursor: grabbing;
+}
+.sb__table-drag-cell--btn.drag-only {
+  margin-bottom: 2px;
 }

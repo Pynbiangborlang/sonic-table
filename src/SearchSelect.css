@@ -1,0 +1,138 @@
+.search-select-box {
+  position: relative;
+  user-select: none;
+  min-width: 100px;
+}
+.search-options-box {
+  max-height: 200px;
+  overflow-y: scroll;
+  background-color: #fff;
+  margin-top: 0.1em;
+  box-shadow: 0em 0.01em 0.1em 1px #9e9b9bb8;
+}
+
+.search-input[aria-labelledby="search-bx"] {
+  border: 0.09em solid black;
+  background-color: #f8f7f7fa;
+  border-radius: 4px;
+  padding: 0.3em;
+}
+
+.search-input[aria-labelledby="search-bx"] input {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: text;
+  position: relative;
+  width: calc(100% - 2.2em);
+}
+.search-input[aria-labelledby="search-bx"] button {
+  position: absolute;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: #666464;
+  z-index: 0;
+  cursor: pointer;
+}
+.search-input[aria-labelledby="search-bx"] button.search-select-close-btn {
+  transform: rotate(180deg);
+  transition: transform 0.1s ease-in-out;
+}
+.search-input[aria-labelledby="search-bx"] button.search-select-open-btn {
+  transform: rotate(0deg);
+  transition: transform 0.1s ease-in-out;
+}
+
+.search-option-item[aria-labelledby="option-item"] {
+  cursor: pointer;
+  padding: 0.05em 0 0.02em 0.4em;
+}
+.search-option-item[aria-labelledby="option-item"]:hover {
+  background-color: #bfbebe6f;
+  cursor: pointer;
+  padding: 0.05em 0 0.02em 0.4em;
+}
+.search-option-item[aria-selected="true"] {
+  background-color: #5468ff !important;
+  color: #fff;
+}
+.search-select-box[aria-activedescendant="false"] div.search-options-box {
+  width: 100%;
+  position: absolute;
+  height: 0px;
+  overflow: hidden;
+  opacity: 0;
+  transition: height 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+.search-select-box[aria-activedescendant="true"] div.search-options-box {
+  position: absolute;
+  height: auto;
+  z-index: 2;
+  opacity: 1;
+  width: 100%;
+  transition: height 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+.search-select-box[aria-activedescendant="false"]
+  div.search-input[aria-labelledby="search-bx"] {
+  border: 0.09em solid rgb(102, 102, 102);
+}
+fieldset.search-select-input-fieldset {
+  text-align: left;
+  position: absolute;
+  inset: -5px 0px 0px;
+  margin: 0px;
+  padding: 0px 8px;
+  pointer-events: none;
+  border-radius: inherit;
+  border-style: solid;
+  border-width: 1px;
+  overflow: hidden;
+  min-width: 0%;
+  border-color: rgba(255, 255, 255, 0.23);
+}
+
+fieldset.search-select-input-fieldset legend.legend-close {
+  float: unset;
+  width: auto;
+  overflow: hidden;
+  display: block;
+  padding: 0;
+  height: 11px;
+  font-size: 0.75em;
+  visibility: hidden;
+  max-width: 0.01px;
+  -webkit-transition: max-width 50ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  transition: max-width 50ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  white-space: nowrap;
+}
+
+fieldset.search-select-input-fieldset legend.legend-open {
+  float: unset;
+  width: auto;
+  overflow: hidden;
+  display: block;
+  padding: 0;
+  height: 11px;
+  font-size: 0.75em;
+  visibility: hidden;
+  max-width: 100%;
+  -webkit-transition: max-width 50ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  transition: max-width 100ms cubic-bezier(0, 0, 0.2, 1) 50ms;
+  white-space: nowrap;
+}
+div.search-input[aria-labelledby="search-bx"] label.ss-input_label {
+  position: absolute;
+  pointer-events: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.search-select-box[aria-selected="true"]
+  div.search-input[aria-labelledby="search-bx"]
+  label.ss-input_label {
+  transform: translateY(calc(-1em)) scale(0.7);
+  transition: transform 0.1s ease-in-out;
+  left: -0.6em;
+  background-color: inherit;
+  font-weight: 600;
+}
